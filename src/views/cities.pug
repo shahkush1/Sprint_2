@@ -1,0 +1,28 @@
+html
+  head
+    title City Information
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')
+    style.
+      h1 {
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+      }
+  body
+    h1 City Information
+    if cities
+      table.table.table-striped.table-bordered
+        thead
+          tr
+            th Name
+            th CountryCode
+            th Population
+        tbody
+          each city in cities
+            tr
+              td #{city.Name}
+              td #{city.CountryCode}
+              td #{city.Population}
+
+  script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+  script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js')
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js')
