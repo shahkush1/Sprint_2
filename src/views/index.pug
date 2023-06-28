@@ -20,10 +20,35 @@ html
   body
     h1 Population Information Reporting
 
-    .btn-container
-      a.btn.btn-primary(href='/countries') View Countries
-      a.btn.btn-primary(href='/cities') View Cities
+
+    // Query Form
+    form(action="/query", method="POST")
+      label(for="Query") Select a Query to fetch data:
+      select(id="Query", class="form-control",name="query" onchange="handleQueryChange()")
+          option(value="allCountriesWorld") All the countries in the world organised by largest population to smallest
+          option(value="allCountriesContinent") All the countries in a continent organised by largest population to smallest
+          option(value="allCountriesRegion") All the countries in a region organised by largest population to smallest
+          option(value="topCountriesWorld") Top N Populated Countries in the World
+          option(value="topCountriesContinent") Top N Populated Countries in a Continent
+          option(value="topCountriesRegion") Top N Populated Countries in a Region
+          option(value="allCitiesBig") All the cities in the world organised by largest population to smallest 
+          option(value="allCitiesSmall") All the cities in a continent organised by largest population to smallest
+          option(value="cityRegionbySmall") All the cities in a region organised by largest population to smallest
+          option(value="cityCountrybyLarge") All the cities in a country organised by largest population to smallest
+          option(value="topCitiesDistrict") All the cities in a district organised by largest population to smallest 
+          option(value="topCitiesWorld") Top N Populated Cities in the World
+          option(value="topCitiesContinent") Top N Populated Cities in a Continent
+          option(value="topCitiesRegion") Top N Populated Cities in a Region
+      br
+      #additionalFields.mt-3
+      .btn-container
+        button.btn.btn-primary(type="submit") Execute Query
+
+
 
   script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+  script(src="./script.js")
   script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js')
   script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js')
+  script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js")
+
